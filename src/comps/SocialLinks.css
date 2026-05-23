@@ -1,0 +1,84 @@
+/* SocialLinks.css */
+
+.social-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ── Link ── */
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Size variants ── */
+
+/* sm — compact for navbar */
+.social-links--sm {
+  gap: 0.125rem;
+}
+
+.social-links--sm .social-link {
+  width: 2rem;
+  height: 2rem;
+}
+
+.social-links--sm .social-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* md — fuller for footer */
+.social-links--md {
+  gap: 0.375rem;
+}
+
+.social-links--md .social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.social-links--md .social-link:hover {
+  border-color: var(--accent-primary);
+  background: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.social-links--md .social-link svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ── Accessibility ── */
+.social-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-link {
+    transition: none;
+  }
+}

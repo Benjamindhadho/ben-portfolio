@@ -1,0 +1,328 @@
+/* HeroVariant2.css — Geometric / Brutalist Dark style
+   Palette: Near-black + vivid electric orange + white
+   Font: Space Mono (display numbers) + Syne (headlines) + Inter (body)
+   Character: Structured brutalism, hard geometry, bold confidence
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap');
+
+/* ── Tokens ── */
+.hv2 {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --border: #2a2a2a;
+  --orange: #ff5a1f;
+  --orange-dim: rgba(255, 90, 31, 0.15);
+  --white: #f0ede8;
+  --muted: #6b6b6b;
+  --mono: 'Space Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --display: 'Syne', sans-serif;
+
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--sans);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Geometric background ── */
+.hv2-geo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hv2-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.hv2-circle--lg {
+  width: 680px;
+  height: 680px;
+  right: -180px;
+  top: -120px;
+  animation: rotateSlow 40s linear infinite;
+}
+
+.hv2-circle--sm {
+  width: 320px;
+  height: 320px;
+  right: 80px;
+  top: 60px;
+  border-color: var(--orange-dim);
+  border-width: 2px;
+  animation: rotateSlow 20s linear infinite reverse;
+}
+
+@keyframes rotateSlow {
+  to { transform: rotate(360deg); }
+}
+
+.hv2-stripe {
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  background: var(--border);
+}
+
+.hv2-stripe--1 { top: 64px; }
+.hv2-stripe--2 { bottom: 100px; }
+
+/* ── Top bar ── */
+.hv2-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hv2-bar-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Body ── */
+.hv2-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 3rem;
+  gap: 4rem;
+}
+
+/* ── Left ── */
+.hv2-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hv2-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--orange);
+  letter-spacing: 0.12em;
+  animation: fadeIn 0.5s 0.1s both;
+}
+
+.hv2-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.hv2-word {
+  display: block;
+  animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hv2-word:nth-child(1) { animation-delay: 0.2s; }
+.hv2-word:nth-child(2) { animation-delay: 0.35s; }
+.hv2-word:nth-child(3) { animation-delay: 0.5s; }
+
+.hv2-word--accent {
+  color: var(--orange);
+}
+
+.hv2-word--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--muted);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Right ── */
+.hv2-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.7s 0.6s both;
+}
+
+/* ── Card ── */
+.hv2-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.hv2-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--orange);
+}
+
+.hv2-card-inner {
+  padding: 2rem;
+}
+
+.hv2-intro {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(240, 237, 232, 0.7);
+  margin-bottom: 1.75rem;
+}
+
+.hv2-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hv2-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: 0.7rem 1.25rem;
+  transition: all 0.16s ease;
+}
+
+.hv2-btn--solid {
+  background: var(--orange);
+  color: var(--bg);
+}
+
+.hv2-btn--solid:hover {
+  background: #ff7043;
+}
+
+.hv2-btn--solid:hover .hv2-btn-arrow {
+  transform: translateX(4px);
+}
+
+.hv2-btn-arrow {
+  display: inline-block;
+  transition: transform 0.16s ease;
+}
+
+.hv2-btn--outline {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.hv2-btn--outline:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+/* Badge */
+.hv2-card-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--orange-dim);
+}
+
+.hv2-card-badge span {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hv2-card-badge strong {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Stats ── */
+.hv2-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border);
+}
+
+.hv2-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.25rem;
+  border-right: 1px solid var(--border);
+}
+
+.hv2-stat:last-child {
+  border-right: none;
+}
+
+.hv2-stat-n {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hv2-stat-label {
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hv2-body {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem 2rem;
+    gap: 2.5rem;
+    align-items: start;
+    padding-top: 3rem;
+  }
+
+  .hv2-bar {
+    padding: 0 1.5rem;
+  }
+
+  .hv2-bar-label:not(:first-child):not(:last-child) {
+    display: none;
+  }
+
+  .hv2-circle--lg { display: none; }
+}

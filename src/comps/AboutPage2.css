@@ -1,0 +1,130 @@
+.about-page {
+  padding: 80px 48px 96px;
+  border-top: 1px solid var(--border);
+}
+
+.about-back {
+  display: inline-flex;
+  margin-bottom: 48px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.about-hero {
+  max-width: 920px;
+  margin-bottom: 72px;
+}
+
+.about-eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.about-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.about-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  color: var(--text-h);
+  margin-bottom: 28px;
+}
+
+.about-intro {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 680px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 88px;
+}
+
+.about-card {
+  background: var(--bg);
+  padding: 40px;
+  transition: background 0.25s ease;
+}
+
+.about-card:hover {
+  background: var(--surface);
+}
+
+.about-card.large {
+  grid-row: span 2;
+}
+
+.about-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 28px;
+}
+
+.about-card h2,
+.about-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.about-card p,
+.about-section p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.about-section {
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 64px 24px 80px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card.large {
+    grid-row: auto;
+  }
+
+  .about-card {
+    padding: 32px 24px;
+  }
+}

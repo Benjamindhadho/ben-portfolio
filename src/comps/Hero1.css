@@ -1,0 +1,318 @@
+/* HeroVariant1.css — Editorial / Magazine typographic style
+   Palette: Off-white paper + deep ink black + sharp citrus accent
+   Font: Playfair Display (display) + DM Sans (body)
+   Character: Bold editorial, high contrast, typographic sculpture
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Reset & tokens ── */
+.hv1 {
+  --paper: #f5f0e8;
+  --ink: #111008;
+  --accent: #d4f000;       /* citrus yellow-green */
+  --muted: #7a7567;
+  --rule: rgba(17, 16, 8, 0.12);
+
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Ruled lines background decoration ── */
+.hv1-rules {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hv1-rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--i) * 16.666%);
+  width: 1px;
+  background: var(--rule);
+  transform-origin: top;
+  animation: ruleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes ruleIn {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* ── Three-column grid ── */
+.hv1-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 3rem 1fr 5rem;
+  grid-template-rows: 1fr;
+  min-height: 100svh;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Left rail ── */
+.hv1-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-right: 1px solid var(--rule);
+}
+
+.hv1-rail-text {
+  writing-mode: vertical-rl;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.hv1-index {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* ── Main content ── */
+.hv1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 3rem 2.5rem 3.5rem;
+}
+
+.hv1-header {
+  padding-top: 1.5rem;
+}
+
+/* Eyebrow */
+.hv1-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.6s 0.3s both;
+}
+
+.hv1-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+/* Headline — three distinct lines */
+.hv1-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 0.92;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+.hv1-line {
+  display: block;
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hv1-line--outline {
+  font-size: clamp(3.8rem, 9vw, 7.5rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+  animation-delay: 0.4s;
+}
+
+.hv1-line--filled {
+  font-size: clamp(3.8rem, 9vw, 7.5rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--ink);
+  background: var(--accent);
+  display: inline-block;     /* shrink to text width */
+  padding: 0 0.08em;
+  animation-delay: 0.55s;
+}
+
+.hv1-line--small {
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  animation-delay: 0.7s;
+}
+
+/* ── Footer ── */
+.hv1-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  animation: fadeUp 0.6s 0.85s both;
+}
+
+.hv1-intro {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 340px;
+}
+
+.hv1-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.hv1-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0.65rem 1.2rem;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.hv1-btn--primary {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+.hv1-btn--primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.hv1-btn--ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+}
+
+.hv1-btn--ghost:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* ── Right status column ── */
+.hv1-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-left: 1px solid var(--rule);
+}
+
+.hv1-available {
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hv1-pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  50%       { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+}
+
+.hv1-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+}
+
+.hv1-scroll-hint span {
+  writing-mode: vertical-rl;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hv1-scroll-dot {
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(6px); opacity: 0.3; }
+}
+
+/* ── Shared animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hv1-grid {
+    grid-template-columns: 2.5rem 1fr;
+    grid-template-rows: auto;
+  }
+
+  .hv1-status { display: none; }
+
+  .hv1-content {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+
+  .hv1-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hv1-actions {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,61 @@
+/* Variant 2: Cyber-Punk Design System */
+:root {
+  /* Colors - High contrast, electric */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f15;
+  --bg-elevated: #15151f;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8d0;
+  --text-tertiary: #7878a0;
+  --border-light: #2a2a35;
+  
+  /* Accent Colors - Neon electric */
+  --accent-primary: #00ff88;
+  --accent-primary-hover: #00cc6a;
+  --accent-secondary: #ff00ff;
+  --accent-success: #00ffcc;
+  --accent-warning: #ff3366;
+  
+  /* Gradients - Neon glows */
+  --gradient-hero: linear-gradient(135deg, #00ff88 0%, #00d4ff 50%, #ff00ff 100%);
+  --gradient-card: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(255, 0, 255, 0.05) 100%);
+  
+  /* Typography - Monospace heavy */
+  --font-sans: 'Space Grotesk', 'Inter', -apple-system, monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  
+  /* Spacing - Dramatic, spacious */
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1.25rem;
+  --spacing-md: 1.75rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 3.5rem;
+  --spacing-2xl: 5rem;
+  --spacing-3xl: 8rem;
+  
+  /* Shadows - Neon glow effects */
+  --shadow-sm: 0 0 4px rgba(0, 255, 136, 0.2);
+  --shadow-md: 0 0 8px rgba(0, 255, 136, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 0 16px rgba(0, 255, 136, 0.4), 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 0 24px rgba(0, 255, 136, 0.5), 0 20px 25px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 0 32px rgba(0, 255, 136, 0.6), 0 25px 50px rgba(0, 0, 0, 0.5);
+  
+  /* Transitions - Snappy, mechanical */
+  --transition-fast: 100ms ease-out;
+  --transition-base: 200ms ease-out;
+  --transition-slow: 300ms ease-out;
+  
+  /* Border Radius - Sharp, geometric */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+/* Dark Theme - Always dark, no preference needed */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Already optimized for dark mode */
+  }
+}
